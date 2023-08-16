@@ -1,0 +1,18 @@
+package com.bolsadeideas.springboot.di.app;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.bolsadeideas.springboot.di.app.models.services.IServicio;
+import com.bolsadeideas.springboot.di.app.models.services.MiServicio;
+
+@Configuration
+public class AppConfig {
+
+	@Bean
+	public IServicio registrarMiServicio() {
+		return new MiServicio();
+	}
+	
+	
+}
