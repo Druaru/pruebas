@@ -11,11 +11,23 @@
 	<h3 th:text="${titulo}"></h3>
 	<form th:action="@{/form}" method="post" th:object="${usuario}">
 		<div>
+			<label for="pais">Pais</label>
+			<div>
+				<select id="pais" th:field="*{pais}">
+				<option value="">-- Seleccionar --</option>
+					<option th:each="pais: ${listaPaises}" th:text="${pais.nombre}" th:value="${pais.id}"></option>
+				</select>
+			</div>
+			<div th:if="${#fields.hasErrors('pais')}"
+				th:errors="*{pais}"></div>
+		</div>
+		<div>
 			<label for="identificador">Identificador</label>
 			<div>
 				<input type="text" id="identificador" th:field="*{identificador}">
 			</div>
-			<div th:if="${#fields.hasErrors('identificador')}" th:errors="*{identificador}"></div>
+			<div th:if="${#fields.hasErrors('identificador')}"
+				th:errors="*{identificador}"></div>
 		</div>
 		<div>
 			<label for="nombre">Nombre</label>
@@ -60,6 +72,15 @@
 				<input type="number" id="cuenta" th:field="*{cuenta}">
 			</div>
 			<div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
+		</div>
+		<div>
+			<label for="fechaNacimiento">Fecha Nacimiento</label>
+			<div>
+				<input type="date" id="fechaNacimiento"
+					th:field="*{fechaNacimiento}" placeholder="yyyy-MM-dd">
+			</div>
+			<div th:if="${#fields.hasErrors('fechaNacimiento')}"
+				th:errors="*{fechaNacimiento}"></div>
 		</div>
 		<div>
 			<div>

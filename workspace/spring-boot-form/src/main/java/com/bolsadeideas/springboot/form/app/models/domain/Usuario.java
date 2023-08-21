@@ -1,28 +1,35 @@
 package com.bolsadeideas.springboot.form.app.models.domain;
 
+import java.util.Date;
+import java.util.List;
+
+//import org.springframework.format.annotation.DateTimeFormat;
+
 import com.bolsadeideas.springboot.form.app.validation.IdentificadorRegex;
 import com.bolsadeideas.springboot.form.app.validation.Requerido;
 
+//import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
-	
-	//@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+
+	// @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
 	@IdentificadorRegex
 	private String identificador;
-	//@NotEmpty(message = "El nombre no puede ser vacío")
+	// @NotEmpty(message = "El nombre no puede ser vacío")
 	private String nombre;
-	//@NotEmpty
+	// @NotEmpty
 	@Requerido
 	private String apellido;
 	@NotBlank
-	@Size(min=3, max=8)
+	@Size(min = 3, max = 8)
 	private String username;
 	@NotEmpty
 	private String password;
@@ -33,6 +40,15 @@ public class Usuario {
 	@Min(5)
 	@Max(5000)
 	private Integer cuenta;
+	@NotNull
+	// @DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Past
+	private Date fechaNacimiento;
+	@NotNull
+	private Pais pais;
+
+	@NotEmpty
+	private List<String> roles;
 
 	public String getUsername() {
 		return username;
@@ -90,5 +106,20 @@ public class Usuario {
 		this.cuenta = cuenta;
 	}
 
-}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
 
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
+
+}
