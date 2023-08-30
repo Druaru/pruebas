@@ -5,9 +5,9 @@ package com.bolsadeideas.springboot.form.app.models.domain;
 
 public class Pais {
 
-	//@NotNull
+	// @NotNull
 	private Integer id;
-	//@NotEmpty
+	// @NotEmpty
 	private String codigo;
 	private String nombre;
 
@@ -43,6 +43,12 @@ public class Pais {
 
 	public Pais() {
 
+	}
+
+	@Override
+	public String toString() {
+
+		return this.id.toString();
 	}
 
 }
