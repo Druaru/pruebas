@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DetalleComponent } from './clientes/detalle/detalle.component';
 
 
 registerLocaleData(localeEs, 'es');
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'clientes/form', component: FormComponent },
   { path: 'clientes/form/:id', component: FormComponent }
 
+
 ]
 
 @NgModule({
@@ -44,6 +46,7 @@ const routes: Routes = [
     ClientesComponent,
     FormComponent,
     PaginatorComponent,
+    DetalleComponent,
   ],
   imports: [
     BrowserModule,
