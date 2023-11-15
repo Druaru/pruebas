@@ -4,17 +4,20 @@ import com.cursos.api.springsecuritycourse.dto.SaveProduct;
 import com.cursos.api.springsecuritycourse.persistence.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.Optional;
 
 public interface ProductService {
-    Page<Product> findAll(Pageable pageable);
 
-    Optional<Product> findOneById(Long productId);
+//	@PreAuthorize("hasAuthority('READ_ALL_PRODUCTS')")
+	Page<Product> findAll(Pageable pageable);
 
-    Product createOne(SaveProduct saveProduct);
+	Optional<Product> findOneById(Long productId);
 
-    Product updateOneById(Long productId, SaveProduct saveProduct);
+	Product createOne(SaveProduct saveProduct);
 
-    Product disableOneById(Long productId);
+	Product updateOneById(Long productId, SaveProduct saveProduct);
+
+	Product disableOneById(Long productId);
 }

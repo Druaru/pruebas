@@ -1,11 +1,11 @@
 package com.cursos.api.springsecuritycourse.exception;
 
-import java.nio.file.FileSystemNotFoundException;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -44,6 +44,22 @@ public class GlobalExceptionHandler {
 		System.out.println(
 				exception.getAllErrors().stream().map(each -> each.getDefaultMessage()).collect(Collectors.toList()));
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiError);
+
+	}
+	
+	@ExceptionHandler(AccessDeniedException.class)
+	public ResponseEntity<?> handlerAccessDeniedException(HttpServletRequest request, 
+			AccessDeniedException exception) {
+		ApiError apiError = new ApiError();
+		apiError.setBackendMessage(exception.getLocalizedMessage());
+		apiError.setUrl(request.getRequestURL().toString());
+		apiError.setMethod(request.getMethod());
+		apiError.setTimestamp(LocalDateTime.now());
+		apiError.setMessage("Acceso Denegado. No tienes los permisos necesarios para acceder a esta función. "
+				+ "por favor contacta con el administrador si piensas que esto puede ser un error.");
+		apiError.setTimestamp(LocalDateTime.now());
+
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(apiError);
 
 	}
 
