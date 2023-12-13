@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html{
+  background-image: url("./assets/img/fondo.png"); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover; /* Ajusta el tamaño para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen en el fondo */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evitará que aparezca una barra de desplazamiento horizontal */
+  color: black; /* Color del texto */
+  border-top: 5px solid #333; /* Borde superior */
+
+}
+
+#imgGaleria {
+  width: 200px;
+  height: 150px;
+}
+
+/*cabecera*/
+
+header {
+  display: flex; /* Usa flexbox para organizar los elementos en línea */
+  justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+  align-items: center; /* Centra los elementos verticalmente */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px dashed #ffffff; /* Ancho del borde, estilo dashed y color */
+}
+
+.headerPers {
+  display: flex; /* Usa flexbox para organizar los elementos en línea */
+  align-items: center; /* Centra los elementos verticalmente */
+}
+
+.headerPers img {
+  width: 200px;
+  height: 135px;
+  padding-left: 2rem;
+}
+
+.headerPers h1 {
+  padding-left: 5rem;
+}
+
+nav ul {
+  list-style: none; /* Elimina los estilos de la lista por defecto */
+  display: flex; /* Usa flexbox para organizar los elementos en línea */
+}
+
+nav li {
+  margin-right: 20px; /* Ajusta el espacio entre los elementos según tus preferencias */
+  font-size: 1.2rem;
+  position: relative; /* Necesario para posicionar el dropdown */
+}
+
+/* Opcional: Añade estilos adicionales según tus preferencias */
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Barra de navegacion */
+
+.navPer {
+  padding-right: 5rem;
+}
+
+/* galeria */
+/* TuEstilo.css */
+
+/* TuEstilo.css */
+
+.galeria-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.imagenes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.imagen-container {
+  width: 100%;
+  max-width: 300px; /* Ajusta el tamaño máximo según tus preferencias */
+  margin-bottom: 20px;
+}
+
+.imagen-galeria {
+  width: 50%;
+  height: 50%;
+  object-fit: cover; /* Ajusta el comportamiento de ajuste de la imagen */
+  transition: transform 0.3s ease-in-out;
+}
+.imagen-galeria:hover {
+  transform: scale(2); /* Ampliación al doble */
+}
+
+.imagen-container:hover .imagen-galeria {
+  transform: scale(1.2); /* Ajusta el factor de escala según tus preferencias */
+}
+
+/* Dropdown styling */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* contenido central */
+.container {
+  width: 50%;
+  margin: 1.2rem auto; /* Utiliza margin: auto; para centrar horizontalmente y ajusta según sea necesario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.container h1 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.container p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Añade este estilo en tu archivo de estilos CSS */
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px dashed #ffffff; /* Ancho del borde, estilo dashed y color */
+}
+
+/* formularios */
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-size: larger;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  align-items: center;
+
+}
+textarea {
+  min-height: 10rem;
+}
+
+#enviar {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
